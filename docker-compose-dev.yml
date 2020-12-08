@@ -1,0 +1,55 @@
+version: '3.3'
+
+services:
+  positicekids-web-dev:
+    container_name: positicekids-web-dev
+    build:
+      context: ./client
+      dockerfile: Dockerfile-dev
+    command: npm run start-docker
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    ports:
+      - 4200:4200
+    depends_on:
+      - positicekids-node-dev
+    env_file:
+      - ./.env
+
+
+  positicekids-node-dev:
+    container_name: positicekids-node-dev
+    build:
+      context: ./server
+      dockerfile: Dockerfile-dev
+    command: ["nodemon", "index.js"]
+    ports:
+      - 8080:8080
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    depends_on:
+      - mariadb
+    env_file:
+      - ./.env
+
+  mariadb:
+    container_name: positicekids-bdd-dev
+    build:
+      context: BDD
+      dockerfile: Dockerfile-dev
+    volumes:
+      - ./BDD/data:/var/lib/mysql:z
+    env_file:
+      - ./.env
+    expose:
+      - 3306
+
+  adminer:
+    container_name: positicekids-adminer-dev
+    image: adminer
+    depends_on:
+      - mariadb
+    ports:
+      - ${PORT_ADMINER}:8080
