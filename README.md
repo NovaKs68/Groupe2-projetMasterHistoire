@@ -24,4 +24,4 @@ Pour lancer le projet en développement il faut :
 * Répéter l'action dans le dossier server
 * Et pour finir se placer à la racine du projet et faire ```sudo docker-compose up --build```
 
-> :warning: ** Pour passer de la prod au développement ou inverse il faut faire : ** ```sudo rm -rf BDD/data```
+> :warning: **Pour passer de la prod au développement ou inverse il faut faire :** ```sudo rm -rf BDD/data```
