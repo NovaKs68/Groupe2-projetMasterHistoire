@@ -10,27 +10,27 @@
       <th class="text-center">Musée</th>
       <th class="text-center">Thème</th>
     </tr>
-    <tr *ngFor='let Inondation of inondationList let i = index'>
+    <tr >
       <td>
-        <span><a href="#/inondation-more/{{ Inondation.id }}">{{Inondation.nom}}</a></span>
-      </td>
-      <td>
-        <span>{{Inondation.dateDebut | date:'dd/MM/yyyy'}}</span>
+        <span><a ></a></span>
       </td>
       <td>
-        <span>{{Inondation.dateFin | date:'dd/MM/yyyy'}}</span>
+        <span></span>
+      </td>
+      <td>
+        <span></span>
       </td>
       <td >
-        <p *ngFor='let Riviere of Inondation.riviere'>{{Riviere.nom}}</p>
+        <p ></p>
       </td>
       <td >
-        <p *ngFor='let Localisation of Inondation.localisations'>{{Localisation.ville.nom}}</p>
+        <p ></p>
       </td>
       <td >
-        <p *ngFor='let Localisation of Inondation.localisations'>{{testDom(Localisation.consequence)}}</p>
+        <p ></p>
       </td>
       <td >
-        <p>{{testVictime(Inondation)}}</p>
+        <p></p>
       </td>
     </tr>
   </table>
@@ -48,27 +48,27 @@
       <th class="text-center">Musée</th>
       <th class="text-center">Thème</th>
     </tr>
-    <tr *ngFor='let Inondation of inondationList let i = index'>
+    <tr >
       <td>
-        <span><a href="#/inondation-more/{{ Inondation.id }}">{{Inondation.nom}}</a></span>
-      </td>
-      <td>
-        <span>{{Inondation.dateDebut | date:'dd/MM/yyyy'}}</span>
+        <span><a ></a></span>
       </td>
       <td>
-        <span>{{Inondation.dateFin | date:'dd/MM/yyyy'}}</span>
+        <span></span>
+      </td>
+      <td>
+        <span></span>
       </td>
       <td >
-        <p *ngFor='let Riviere of Inondation.riviere'>{{Riviere.nom}}</p>
+        <p ></p>
       </td>
       <td >
-        <p *ngFor='let Localisation of Inondation.localisations'>{{Localisation.ville.nom}}</p>
+        <p ></p>
       </td>
       <td >
-        <p *ngFor='let Localisation of Inondation.localisations'>{{testDom(Localisation.consequence)}}</p>
+        <p ></p>
       </td>
       <td >
-        <p>{{testVictime(Inondation)}}</p>
+        <p></p>
       </td>
     </tr>
   </table>
@@ -86,30 +86,31 @@
       <th class="text-center">Musée</th>
       <th class="text-center">Thème</th>
     </tr>
-    <tr *ngFor='let Inondation of inondationList let i = index'>
+    <tr >
       <td>
-        <span><a href="#/inondation-more/{{ Inondation.id }}">{{Inondation.nom}}</a></span>
-      </td>
-      <td>
-        <span>{{Inondation.dateDebut | date:'dd/MM/yyyy'}}</span>
+        <span><a ></a></span>
       </td>
       <td>
-        <span>{{Inondation.dateFin | date:'dd/MM/yyyy'}}</span>
+        <span></span>
+      </td>
+      <td>
+        <span></span>
       </td>
       <td >
-        <p *ngFor='let Riviere of Inondation.riviere'>{{Riviere.nom}}</p>
+        <p ></p>
       </td>
       <td >
-        <p *ngFor='let Localisation of Inondation.localisations'>{{Localisation.ville.nom}}</p>
+        <p ></p>
       </td>
       <td >
-        <p *ngFor='let Localisation of Inondation.localisations'>{{testDom(Localisation.consequence)}}</p>
+        <p ></p>
       </td>
       <td >
-        <p>{{testVictime(Inondation)}}</p>
+        <p></p>
       </td>
     </tr>
   </table>
 </div>
+{{function()}}
 
 <router-outlet></router-outlet>
