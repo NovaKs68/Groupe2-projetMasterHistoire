@@ -1,4 +1,7 @@
 const express = require('express');
+const museeRoutes = require('./routes/museee');
+const themeRoutes = require('./routes/theme');
+const expositionRoutes = require('./routes/exposition');
 
 const app = express();
 
@@ -13,5 +16,8 @@ app.use((req, res, next) => {
 });
 
 // Routes de l'application
+app.use('/api/musee', museeRoutes);
+app.use('/api/exposition', expositionRoutes);
+app.use('/api/theme', themeRoutes);
 
 module.exports = app;
