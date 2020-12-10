@@ -23,7 +23,17 @@ exports.getOne = (req, res, next) => {
 }
 
 exports.create = (req, res, next) => {
-    db.query('INSERT INTO musee (id_musee, nom, adresse, ville, code_postal, horaires, tarif_reduit, tarif_plein) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?);', [req.body.nom, req.body.adresse, req.body.ville, req.body.code_postal, req.body.horaires, req.body.tarif_reduit, req.body.tarif_plein], function(err, rows,) {
+    db.query('INSERT INTO musee (id_musee, nom_musee, adresse, ville, code_postal, horaires, tarif_reduit, tarif_plein) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?);', [req.body.nom_musee, req.body.adresse, req.body.ville, req.body.code_postal, req.body.horaires, req.body.tarif_reduit, req.body.tarif_plein], function(err, rows,) {
+        if(err){
+            res.status(404).json({ err, sucess: false });
+        } else {
+            res.status(200).json({ sucess: true });
+        }
+    });
+}
+
+exports.delete = (req, res, next) => {
+    db.query('DELETE FROM musee WHERE id_musee=?', req.params.id, function(err, rows,) {
         if(err){
             res.status(404).json({ err, sucess: false });
         } else {

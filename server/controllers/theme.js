@@ -23,7 +23,17 @@ exports.getOne = (req, res, next) => {
 }
 
 exports.create = (req, res, next) => {
-    db.query('INSERT INTO theme (`id_theme`, `nom`) VALUES(NULL, ?);', [req.body.nom], function(err, rows,) {
+    db.query('INSERT INTO theme (`id_theme`, `nom_theme`) VALUES(NULL, ?);', [req.body.nom_theme], function(err, rows,) {
+        if(err){
+            res.status(404).json({ err, sucess: false });
+        } else {
+            res.status(200).json({ sucess: true });
+        }
+    });
+}
+
+exports.delete = (req, res, next) => {
+    db.query('DELETE FROM theme WHERE id_theme=?', req.params.id, function(err, rows,) {
         if(err){
             res.status(404).json({ err, sucess: false });
         } else {
