@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ThemesService } from './services/theme.service';
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,10 +10,12 @@ import { ThemesService } from './services/theme.service';
 })
 export class AppComponent {
 
+  resultatTheme: any;
+
 constructor( private themeService : ThemesService) {}
 
-function(){
-  const resultatTheme = this.themeService.getAllThemes();
+async function() {
+  this.resultatTheme = await this.themeService.getAllThemes();
 }
 
 }

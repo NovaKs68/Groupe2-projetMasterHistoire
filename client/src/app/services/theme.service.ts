@@ -9,8 +9,7 @@ export class ThemesService{
 
   constructor() {}
 
-  public getAllThemes() : any {
-
+  public getAllThemes(): Promise<any> {
     return new Promise((resolve, reject) => {
       fetch('http://localhost:8080/api/theme/', {
         method: 'GET',
@@ -18,7 +17,6 @@ export class ThemesService{
       })
         .then((response) => {
           response.json().then((data) =>{
-            console.log(data);
             resolve(data);
           });
         })

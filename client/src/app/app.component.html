@@ -78,39 +78,15 @@
   <h1 class="text-center">Les Thèmes</h1>
   <table class="table table-bordered table-responsive-md table-striped text-center">
     <tr>
-      <th class="text-center">Nom</th>
-      <th class="text-center">Date début</th>
-      <th class="text-center">Date fin</th>
-      <th class="text-center">Tarif</th>
-      <th class="text-center">Age limite</th>
-      <th class="text-center">Musée</th>
-      <th class="text-center">Thème</th>
+      <th class="text-center">Nom Theme</th>
     </tr>
     <tr >
-      <td>
-        <span><a ></a></span>
-      </td>
-      <td>
-        <span></span>
-      </td>
-      <td>
-        <span></span>
-      </td>
-      <td >
-        <p ></p>
-      </td>
-      <td >
-        <p ></p>
-      </td>
-      <td >
-        <p ></p>
-      </td>
-      <td >
-        <p></p>
+      <td *ngFor="let nomTheme of resultatTheme.response">
+        <span><a>{{nomTheme.nom_theme}}</a></span>
       </td>
     </tr>
   </table>
 </div>
-{{function()}}
+<button class="btn btn-danger" (click)="function()">Appuis ouesh</button>
 
 <router-outlet></router-outlet>
