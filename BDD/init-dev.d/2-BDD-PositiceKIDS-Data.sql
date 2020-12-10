@@ -2,7 +2,7 @@ use positicekids;
 
 ----------------------Table musee----------------------
 
-INSERT INTO `musee` (`id_musee`, `nom`, `adresse`, `ville`, `code_postal`, `horaires`, `tarif_reduit`, `tarif_plein`) VALUES
+INSERT INTO `musee` (`id_musee`, `nom_musee`, `adresse`, `ville`, `code_postal`, `horaires`, `tarif_reduit`, `tarif_plein`) VALUES
 (1, 'Musée Würth', 'ZI OUEST, Rue Georges Besse', 'Erstein', 67150, '10:00 - 18:00', 0, 0),
 (2, 'MAMCS', '1 Place Hans-Jean-Arp', 'Strasbourg', 67000, '10:00 - 18:00', 6, 12),
 (3, 'Musée Tomi Ungerer : centre d\'iluustrration européen', '2 Avenue de la Marseillaise', 'Strasbourg', 67000, '10:00 - 18:00', 6, 12),
@@ -14,7 +14,7 @@ INSERT INTO `musee` (`id_musee`, `nom`, `adresse`, `ville`, `code_postal`, `hora
 
 ----------------------Table theme----------------------
 
-INSERT INTO `theme` (`id_theme`, `nom`) VALUES
+INSERT INTO `theme` (`id_theme`, `nom_theme`) VALUES
 (1, 'Histoire de l\'art'),
 (2, 'Histoire'),
 (3, 'Sciences'),
@@ -23,7 +23,7 @@ INSERT INTO `theme` (`id_theme`, `nom`) VALUES
 
 ----------------------Table exposition----------------------
 
-INSERT INTO `exposition` (`id_exposition`, `nom`, `date_debut`, `date_fin`, `tarif`, `tranche_age`, `id_musee`, `id_theme`) VALUES
+INSERT INTO `exposition` (`id_exposition`, `nom_exposition`, `date_debut`, `date_fin`, `tarif`, `tranche_age`, `id_musee`, `id_theme`) VALUES
 (1, 'Christo et Jeanne-Claude', DATE('2020-07-22'), DATE('2021-10-20'), 0, NULL, 1, 1),
 (2, 'L\'œil de Huysmans : Manet, Degas, Moreau', DATE('2020-10-02'), DATE('2021-01-17'), 0, NULL, 2, 1),
 (3, 'Mon zoo à moi : Les animaux de Tomi', DATE('2020-12-03'), DATE('2021-08-21'), 18, '7/12 ans', 3, 5),

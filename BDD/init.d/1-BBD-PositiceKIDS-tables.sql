@@ -9,7 +9,7 @@ GRANT ALL PRIVILEGES ON positicekids . * TO 'rootSQL'@'%';
 
 CREATE TABLE `musee` (
     `id_musee` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-    `nom` varchar(150) DEFAULT NULL,
+    `nom_musee` varchar(150) DEFAULT NULL,
     `adresse` varchar(150) DEFAULT NULL,
     `ville` varchar(60) DEFAULT NULL,
     `code_postal` int(5) DEFAULT NULL,
@@ -24,7 +24,7 @@ Engine = INNODB;
 
 CREATE TABLE `theme` (
     `id_theme` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-    `nom` varchar(50) DEFAULT NULL,
+    `nom_theme` varchar(50) DEFAULT NULL,
     PRIMARY KEY (`id_theme`)
 )
 Engine = INNODB;
@@ -33,7 +33,7 @@ Engine = INNODB;
 
 CREATE TABLE `exposition` (
     `id_exposition` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-    `nom` varchar(100) DEFAULT NULL,
+    `nom_exposition` varchar(100) DEFAULT NULL,
     `date_debut` DATE DEFAULT NULL,
     `date_fin` DATE DEFAULT NULL,
     `tarif` float DEFAULT NULL,
