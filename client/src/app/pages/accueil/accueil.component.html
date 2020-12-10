@@ -1,0 +1,94 @@
+<div class="container">
+  <h1 class="text-center tableau">Les expositions</h1>
+  <table class="table table-bordered table-responsive-md table-striped text-center">
+    <tr>
+      <th class="text-center">Nom</th>
+      <th class="text-center">Date début</th>
+      <th class="text-center">Date fin</th>
+      <th class="text-center">Tarif</th>
+      <th class="text-center">Age limite</th>
+      <th class="text-center">Musée</th>
+      <th class="text-center">Thème</th>
+    </tr>
+    <tr *ngFor="let exposition of resultatExposition.response">
+      <td>
+        <span>{{exposition.nom_exposition}}</span>
+      </td>
+      <td>
+        <span>{{exposition.date_debut | date:'dd/MM/yyyy'}}</span>
+      </td>
+      <td>
+        <span>{{exposition.date_fin | date:'dd/MM/yyyy'}}</span>
+      </td>
+      <td >
+        <p >{{exposition.tarif}}€</p>
+      </td>
+      <td >
+        <p *ngIf="exposition.tranche_age">{{exposition.tranche_age}}</p>
+        <p *ngIf="!exposition.tranche_age">Accessible à tous</p>
+      </td>
+      <td >
+        <p >{{exposition.nom_musee}}</p>
+      </td>
+      <td >
+        <p>{{exposition.nom_theme}}</p>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="container tableau">
+  <h1 class="text-center ">Les musées</h1>
+  <table class="table table-bordered table-responsive-md table-striped text-center">
+    <tr>
+      <th class="text-center">Nom</th>
+      <th class="text-center">Adresse</th>
+      <th class="text-center">Ville</th>
+      <th class="text-center">Code postal</th>
+      <th class="text-center">Horaires</th>
+      <th class="text-center">Tarif reduit</th>
+      <th class="text-center">Tarif plein</th>
+    </tr>
+    <tr *ngFor="let musee of resultatMusee.response">
+      <td>
+        <span>{{musee.nom_musee}}</span>
+      </td>
+      <td>
+        <span>{{musee.adresse}}</span>
+      </td>
+      <td>
+        <span>{{musee.ville}}</span>
+      </td>
+      <td >
+        <p >{{musee.code_postal}}</p>
+      </td>
+      <td >
+        <p >{{musee.horaires}}</p>
+      </td>
+      <td >
+        <p >{{musee.tarif_reduit}}</p>
+      </td>
+      <td >
+        <p>{{musee.tarif_plein}}</p>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="container tableau">
+  <h1 class="text-center">Les Thèmes</h1>
+  <table class="table table-bordered table-responsive-md table-striped text-center">
+    <tr>
+      <th class="text-center">Nom Theme</th>
+    </tr>
+    <tr *ngFor="let theme of resultatTheme.response">
+      <td >
+        <span>{{theme.nom_theme}}</span>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<button (click)="getTheme()">ok</button>
+
+<router-outlet></router-outlet>

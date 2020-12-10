@@ -1,0 +1,56 @@
+<div class="container">
+
+    <form class="mt-5">
+      <h3>Création d'un musée</h3>
+      <div class="form-group">
+        <label for="nameMusee" class="mt-2">Nom du nouveau Musee</label>
+        <input type="text" class="form-control" [formControl]="nameMusee" id="nameMusee" placeholder="Entrez un nom de musée">
+        <label for="adresseMusee" class="mt-2">Adresse du musée</label>
+        <input type="text" class="form-control" [formControl]="adresseMusee" id="adresseMusee" placeholder="Exemple : 20 rue des signes">
+        <label for="villeMusee" class="mt-2">La ville du musée</label>
+        <input type="text" class="form-control" [formControl]="villeMusee" id="villeMusee" placeholder="Exemple : Riedisheim">
+        <label for="codePostalMusee" class="mt-2">Le code postal du musée</label>
+        <input type="number" class="form-control" [formControl]="codePostalMusee" id="codePostalMusee" placeholder="Exemple : 68400">
+        <label for="horairesMusee" class="mt-2">Les horaires d'ouverture</label>
+        <input type="text" class="form-control" [formControl]="horairesMusee" id="horairesMusee" placeholder="Exemple : 10:00 - 18:00">
+        <label for="tarifReduitMusee" class="mt-2">Le tarif réduit</label>
+        <input type="number" class="form-control" [formControl]="tarifReduitMusee" id="tarifReduitMusee" placeholder="Exemple : 8">
+        <label for="tarifPleinMusee" class="mt-2">Le tarif plein</label>
+        <input type="number" class="form-control" [formControl]="tarifPleinMusee" id="tarifPleinMusee" placeholder="Exemple : 12">
+        <button type="submit" class="btn btn-primary mt-3" (click)="onFormSubmitMusee()">Submit</button>
+      </div>
+    </form>
+
+    <form class="mt-5">
+      <h3>Création d'un Thème</h3>
+        <label for="nameTheme">Nom du nouveau Thème</label>
+        <input #value type="text" class="form-control" id="nameTheme" [formControl]="nameTheme" placeholder="Entrez un nom de thème">
+      <button type="submit" class="btn btn-primary mt-3" (click)="onFormSubmitTheme()">Submit</button>
+    </form>
+
+    <form class="mt-5">
+      <h3>Création d'une Exposition</h3>
+      <div class="form-group">
+        <label for="nameExposition">Nom de la nouvelle Exposition</label>
+        <input type="text" class="form-control" [formControl]="nameExposition" id="nameExposition" placeholder="Entrez un nom d'exposition">
+        <label for="dateDebutExposition" class="mt-2">Date du début de l'Exposition</label>
+        <input type="date" id="dateDebutExposition" name="trip-start" class="form-control" [formControl]="dateDebutExposition"
+               value="2018-07-22"
+               min="2018-01-01" max="2018-12-31">
+        <label for="dateFinExposition" class="mt-2">Date de fin de l'Exposition</label>
+        <input type="date" id="dateFinExposition" name="trip-start" class="form-control" [formControl]="dateFinExposition"
+               value="2018-07-22"
+               min="2018-01-01" max="2018-12-31">
+        <label for="tarifExposition" class="mt-2">Tarif</label>
+        <input type="number" class="form-control" [formControl]="tarifExposition" id="tarifExposition" placeholder="10">
+        <label for="trancheAgeExposition" class="mt-2">Tranche d'âge</label>
+        <input type="text" class="form-control" [formControl]="trancheAgeExposition" id="trancheAgeExposition" placeholder="Exemple : 7/12 ans">
+        <label for="idMuseeExposition" class="mt-2">Musée</label>
+        <input type="number" class="form-control" [formControl]="idMuseeExposition" id="idMuseeExposition" placeholder="2">
+        <label for="idThemeExposition" class="mt-2">Thème</label>
+        <input type="number" class="form-control" [formControl]="idThemeExposition" id="idThemeExposition" placeholder="1">
+        <button type="submit" class="btn btn-primary mt-3" (click)="onFormSubmitExposition()">Submit</button>
+      </div>
+    </form>
+
+</div>
