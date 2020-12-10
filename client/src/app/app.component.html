@@ -10,27 +10,27 @@
       <th class="text-center">Musée</th>
       <th class="text-center">Thème</th>
     </tr>
-    <tr >
+    <tr *ngFor="let exposition of resultatExposition.exposition">
       <td>
-        <span><a ></a></span>
-      </td>
-      <td>
-        <span></span>
+        <span>{{exposition.nom}}</span>
       </td>
       <td>
-        <span></span>
+        <span>{{exposition.date_debut}}</span>
+      </td>
+      <td>
+        <span>{{exposition.date_fint}}</span>
       </td>
       <td >
-        <p ></p>
+        <p >{{exposition.date_fint}}</p>
       </td>
       <td >
-        <p ></p>
+        <p >{{exposition.tranche_age}}</p>
       </td>
       <td >
-        <p ></p>
+        <p >{{exposition.musee_id}}</p>
       </td>
       <td >
-        <p></p>
+        <p>{{exposition.theme_id}}</p>
       </td>
     </tr>
   </table>
@@ -41,34 +41,34 @@
   <table class="table table-bordered table-responsive-md table-striped text-center">
     <tr>
       <th class="text-center">Nom</th>
-      <th class="text-center">Date début</th>
-      <th class="text-center">Date fin</th>
-      <th class="text-center">Tarif</th>
-      <th class="text-center">Age limite</th>
-      <th class="text-center">Musée</th>
-      <th class="text-center">Thème</th>
+      <th class="text-center">Adresse</th>
+      <th class="text-center">Ville</th>
+      <th class="text-center">Code postal</th>
+      <th class="text-center">Horaires</th>
+      <th class="text-center">Tarif reduit</th>
+      <th class="text-center">Tarif plein</th>
     </tr>
-    <tr >
+    <tr *ngFor="let musee of resultatMusee.musee">
       <td>
-        <span><a ></a></span>
-      </td>
-      <td>
-        <span></span>
+        <span>{{musee.nom}}</span>
       </td>
       <td>
-        <span></span>
+        <span>{{musee.adresse}}</span>
+      </td>
+      <td>
+        <span>{{musee.ville}}</span>
       </td>
       <td >
-        <p ></p>
+        <p >{{musee.code_postal}}</p>
       </td>
       <td >
-        <p ></p>
+        <p >{{musee.horaires}}</p>
       </td>
       <td >
-        <p ></p>
+        <p >{{musee.tarif_reduit}}</p>
       </td>
       <td >
-        <p></p>
+        <p>{{musee.tarif_plein}}</p>
       </td>
     </tr>
   </table>
@@ -80,13 +80,12 @@
     <tr>
       <th class="text-center">Nom Theme</th>
     </tr>
-    <tr >
-      <td *ngFor="let nomTheme of resultatTheme.response">
-        <span><a>{{nomTheme.nom_theme}}</a></span>
+    <tr *ngFor="let theme of resultatTheme.response">
+      <td >
+        <span>{{theme.nom}}</span>
       </td>
     </tr>
   </table>
 </div>
-<button class="btn btn-danger" (click)="function()">Appuis ouesh</button>
 
 <router-outlet></router-outlet>
