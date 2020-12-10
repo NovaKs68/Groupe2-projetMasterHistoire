@@ -23,5 +23,11 @@ exports.getOne = (req, res, next) => {
 }
 
 exports.create = (req, res, next) => {
-
+    db.query('INSERT INTO theme (`id_theme`, `nom`) VALUES(NULL, ?);', [req.body.nom], function(err, rows,) {
+        if(err){
+            res.status(404).json({ err, sucess: false });
+        } else {
+            res.status(200).json({ sucess: true });
+        }
+    });
 }
