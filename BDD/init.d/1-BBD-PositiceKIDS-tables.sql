@@ -5,39 +5,47 @@ USE positicekids;
 CREATE USER IF NOT EXISTS 'rootSQL'@'%' IDENTIFIED BY 'root';
 GRANT ALL PRIVILEGES ON positicekids . * TO 'rootSQL'@'%';
 
-CREATE TABLE `musee` (`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-    `nom` varchar(50) DEFAULT NULL,
-    `adresse` varchar(100) DEFAULT NULL,
-    `ville` varchar(20) DEFAULT NULL,
+----------------------Table musee----------------------
+
+CREATE TABLE `musee` (
+    `id_musee` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+    `nom` varchar(150) DEFAULT NULL,
+    `adresse` varchar(150) DEFAULT NULL,
+    `ville` varchar(60) DEFAULT NULL,
     `code_postal` int(5) DEFAULT NULL,
-    `horaires` varchar(11) DEFAULT NULL,
+    `horaires` varchar(13) DEFAULT NULL,
     `tarif_reduit` float DEFAULT NULL,
     `tarif_plein` float DEFAULT NULL,
-    PRIMARY KEY (`id`),
-    UNIQUE KEY `id` (`id`));
+    PRIMARY KEY (`id_musee`)
+)
+Engine = INNODB;
 
+----------------------Table theme----------------------
 
-CREATE TABLE `theme` (`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `theme` (
+    `id_theme` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
     `nom` varchar(50) DEFAULT NULL,
-    PRIMARY KEY (`id`),
-    UNIQUE KEY `id` (`id`));
+    PRIMARY KEY (`id_theme`)
+)
+Engine = INNODB;
 
+----------------------Table exposition----------------------
 
-CREATE TABLE `exposition` (`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `exposition` (
+    `id_exposition` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
     `nom` varchar(100) DEFAULT NULL,
-    `date_debut` datetime DEFAULT NULL,
-    `date_fin` datetime DEFAULT NULL,
+    `date_debut` DATE DEFAULT NULL,
+    `date_fin` DATE DEFAULT NULL,
     `tarif` float DEFAULT NULL,
-    `tranche_age` varchar(7) DEFAULT NULL,
-    `musee_id` bigint(20) unsigned DEFAULT NULL,
-    `theme_id` bigint(20) unsigned DEFAULT NULL,
-    PRIMARY KEY (`id`),
-    UNIQUE KEY `id` (`id`),
-    KEY `lieu_id` (`musee_id`),
-    KEY `theme_id` (`theme_id`),
+    `tranche_age` varchar(9) DEFAULT NULL,
+    `id_musee` bigint(20) unsigned DEFAULT NULL,
+    `id_theme` bigint(20) unsigned DEFAULT NULL,
+    PRIMARY KEY (`id_exposition`),
     CONSTRAINT `fk_exposition_musee`
-        FOREIGN KEY (`musee_id`)
-        REFERENCES `musee` (`id`),
+        FOREIGN KEY (`id_musee`)
+        REFERENCES `musee` (`id_musee`),
     CONSTRAINT `fk_exposition_theme`
-        FOREIGN KEY (`theme_id`)
-        REFERENCES `theme` (`id`));
+        FOREIGN KEY (`id_theme`)
+        REFERENCES `theme` (`id_theme`)
+)
+Engine = INNODB;
