@@ -1,0 +1,46 @@
+version: '3.3'
+
+services:
+  positicekids-web:
+    container_name: positicekids-web
+    build:
+      context: client
+    ports:
+      - ${PORT_ANGULAR}:80
+    depends_on:
+      - positicekids-node
+    env_file:
+      - ./.env
+
+
+  positicekids-node:
+    container_name: positicekids-node
+    build:
+      context: server
+      dockerfile: Dockerfile
+    ports:
+      - ${PORT_BACK}:8080
+    depends_on:
+      - mariadb
+    env_file:
+      - ./.env
+
+  mariadb:
+    container_name: positicekids-bdd
+    build:
+      context: BDD
+      dockerfile: Dockerfile
+    volumes:
+      - ./BDD/data:/var/lib/mysql:z
+    env_file:
+      - ./.env
+    expose:
+      - 3306
+
+  adminer:
+    container_name: positicekids-adminer
+    image: adminer
+    depends_on:
+      - mariadb
+    ports:
+      - ${PORT_ADMINER}:8080
